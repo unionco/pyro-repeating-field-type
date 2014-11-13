@@ -53,8 +53,20 @@
 
         <script type="text/template" data-repeating-template="{{ repeatingGroupId }}">
             {{ inputGroups }}
-                <div data-field-group="{{ slug }}" class="repeating-field-group">
-                    <h4 class="repeating-field-group-name">{{ name }}</h4>
+                <div data-sortable-item data-field-group="{{ slug }}" class="repeating-field-group">
+                    <div class="ttable">
+                        <div class="tcell cell-1">
+                            <h4 class="repeating-field-group-name">{{ name }}</h4>
+                        </div>
+                        <div class="tcell cell-2">
+                            <a href="#" class="repeating-field-delete" data-repeating-field-delete>
+                                <i class="fa fa-lg fa-times-circle"></i>
+                            </a>
+                            <a href="#" class="sortable-handle" data-sortable-handle>
+                                 <i class="fa fa-lg fa-reorder"></i>
+                            </a>
+                        </div>
+                    </div>
                     {{ elements }}
                         <div    class="field-type-field"
                                 data-field-slug="{{ slug }}"
