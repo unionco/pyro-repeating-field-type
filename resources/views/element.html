@@ -1,0 +1,75 @@
+{{ asset.add group="streams.css" file="field_type.repeating::css/repeating.css" filters="live" }}
+{{ asset.add group="streams.js" file="field_type.repeating::js/repeating.js" filters="live" }}
+{{ asset.add group="streams.js" file="field_type.repeating::js/vendor/sortable/js/jquery-sortable-min.js" filters="live" }}
+
+<div class="{{ class }} {{ hidden then 'hidden' }}" data-locale="{{ locale }}">
+
+    <label class="control-label {{ required then 'required' }}">
+        {{ label }}
+        {{ if translatable }}
+        <small class="text-muted"><i class="fa fa-language"></i> {{ language }}</small>
+        {{ endif }}
+    </label>
+    <div class="repeating-field-type-wrap">
+
+        <div class="clearfix"></div>
+
+        <div class="repeating-fields" data-repeating-field="<?=$__data['fieldName']?>">
+            <div class="field-type-fields" data-sortable data-repeating-element-wrap="repeating-element-{{ .data.repeatingGroupId }}">
+                <?php foreach($__data['formFieldGroups'] as $formFieldGroup): ?>
+                    <div data-sortable-item data-field-group="<?=$formFieldGroup->slug ?>" class="repeating-field-group">
+                        <div class="ttable">
+                            <div class="tcell cell-1">
+                                <h4 class="repeating-field-group-name"><?=$formFieldGroup->name ?></h4>
+                            </div>
+                            <div class="tcell cell-2">
+                                <a href="#" class="repeating-field-delete" data-repeating-field-delete>
+                                    <i class="fa fa-lg fa-times-circle"></i>
+                                </a>
+                                <a href="#" class="sortable-handle" data-sortable-handle>
+                                     <i class="fa fa-lg fa-reorder"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <?php foreach($formFieldGroup->fields as $fieldSlug => $field): ?>
+                            <div class="field-type-field" data-field-type="<?=$field->class ?>" data-field-slug="<?=$fieldSlug?>">
+                                <?=$field->render() ?>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <div class="field-type-buttons">
+                {{ inputGroups }}
+                    <a  class="btn btn-sm btn-primary"
+                        href="#"
+                        data-repeating-group-id="{{ .data.repeatingGroupId }}"
+                        data-repeating-group-add="{{ slug }}">
+                        + {{{ name }}}
+                    </a>
+                {{ /inputGroups }}
+            </div>
+        </div>
+
+        <script type="text/template" data-repeating-template="{{ repeatingGroupId }}">
+            {{ inputGroups }}
+                <div data-field-group="{{ slug }}" class="repeating-field-group">
+                    <h4 class="repeating-field-group-name">{{ name }}</h4>
+                    {{ elements }}
+                        <div    class="field-type-field"
+                                data-field-slug="{{ slug }}"
+                                data-field-type="{{ field.class }}">
+
+                            {{{ field.render }}}
+                        </div>
+                    {{ /elements }}
+                </div>
+            {{ /inputGroups }}
+        </script>
+
+        <div class="clearfix"></div>
+
+        <p class="help-block">{{ instructions }}</p>
+    </div>
+
+</div>

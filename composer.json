@@ -1,0 +1,11 @@
+{
+    "name": "union/repeating-field-type",
+    "type": "streams-addon",
+    "description": "Repeating field type.",
+    "authors": [
+        {
+            "name": "Union",
+            "email": "matt.davis@union.co"
+        }
+    ]
+}

@@ -1,0 +1,59 @@
+.repeating-field-type .repeating-fields {
+        padding: 15px 0;
+    }
+.repeating-field-type .repeating-field-type-wrap {
+    border: 1px #d7d7d7 solid;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    padding: 15px 25px;
+}
+.repeating-field-type .field-type-field {
+    margin-bottom: 25px;
+}
+.repeating-field-type .repeating-field-group {
+    border: 1px #d7d7d7 solid;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    margin: 0 auto 25px;
+    padding: 15px;
+}
+.repeating-field-type .repeating-field-group-name {
+    margin-top: 0;
+}
+.repeating-field-type .field-type-field:last-child {
+    margin-bottom: 0;
+}
+.repeating-field-type .dragged {
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    z-index: 999;
+    transform: translateX(-100%);
+}
+.repeating-field-type .sortable-placeholder {
+    border: none;
+    box-sizing: content-box;
+    height: 2px;
+    position: relative;
+    margin: 25px 0;
+    background: black;
+}
+.repeating-field-type .sortable-placeholder:before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+}
+.repeating-field-type .ttable {
+    display: table;
+    width: 100%;
+}
+.repeating-field-type .tcell {
+    display: table-cell;
+    vertical-align: middle;
+}
+.repeating-field-type .cell-2 {
+    text-align: right;
+}
+.repeating-field-type .repeating-field-delete {
+    color: red;
+    margin-right: 15px;
+}
